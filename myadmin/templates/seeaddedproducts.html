@@ -1,0 +1,81 @@
+{% extends 'adminhome.html' %}
+{%block nav%}
+<div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto">
+      <a href="/myadmin/" class="nav-item nav-link">Admin home</a>
+      <a href="/myadmin/manageusers/" class="nav-item nav-link">Manage users</a>
+      <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Options</a>
+          <div class="dropdown-menu rounded-0 m-0">
+              <a href="/myadmin/addcategory/" class="dropdown-item">Add Category</a>
+              <a href="/myadmin/addsubcategory/" class="dropdown-item">Add Sub Category</a>
+              <a href="/myadmin/addproduct/" class="dropdown-item ">Add Product</a>
+              <a href="/myadmin/seeaddedproducts/" class="dropdown-item active">See Added Products</a>
+          </div>
+      </div>
+      <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+        <div class="dropdown-menu rounded-0 m-0">
+            <a href="/myadmin/cpuser/" class="dropdown-item">Change Password</a>
+            <a href="/myadmin/epuser/" class="dropdown-item">Edit Profile</a>
+        </div>
+    </div>
+    </div> 
+   <a href="/Login/"  class="btn btn-primary px-3 d-none d-lg-flex text-right">Logout</a>
+  </div>
+{%endblock nav%}
+{%block carousel%}
+
+<style>
+  #main{
+       min-height: 300px;
+       width: 600px;
+  }
+  .main_part{
+       height: 150px;
+       width: 150px;
+       float: left;
+  }
+</style>
+<br>
+<div class="col-md-12 p-5 mt-lg-5">
+<span>Welcome:{{sunm}}</span>
+<div class="row g-5">
+  <div class="col-lg-4">
+<h3 class="mb-4">Product List>></h3>
+  
+<div id="main"> 
+       
+</div>
+</div>
+
+<div class="col-lg-4">
+
+</div>
+
+
+<div class="col-lg-4">
+{% for row in plist %}
+  <center>
+  <table height="150" style="border: solid black;" class="table table-bordered">
+    <tr>
+      <td width="35%" rowspan="3">
+      <center><img height="130" width="150" src="/media/{{row.piconname}}" alt=""></center>
+      </td>
+      <td> <b>Product Title: </b> {{row.ptitle}}</td>
+    </tr>
+    <tr>
+      <td><b>Product Description : </b>{{row.pdescription}}</td>
+    </tr>
+    <tr>
+      <td><b>Product Base Price: </b>{{row.pbprice}}</td>
+    </tr>
+  </table>
+  </center>
+{% endfor %}
+</div>
+</div>
+  
+
+</div>  
+{%endblock carousel%}

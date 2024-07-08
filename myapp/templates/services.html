@@ -1,0 +1,74 @@
+{% extends 'master_template.html' %}
+{%load static%}
+{%block nav%}
+<div class="collapse navbar-collapse" id="navbarCollapse">
+     <div class="navbar-nav ms-auto">
+          <a href="/" class="nav-item nav-link">Home</a>
+          <a href="/About/" class="nav-item nav-link">About</a>
+          <a href="/Services/" class="nav-item nav-link active">Services</a>
+          <a href="/Register/" class="nav-item nav-link ">Register</a>
+          <a href="/Contact/" class="nav-item nav-link">Contact</a>
+     </div>
+     <a href="/Login/" class="btn btn-primary px-3 d-none d-lg-flex">Login</a>
+</div>
+{%endblock nav%}
+{%block carousel%}
+
+<div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+     <div class="col-md-6 p-5 mt-lg-5">
+          <h1 class="display-5 animated fadeIn mb-4">
+               Find A <span class="text-primary">Perfect Thing</span>You Want...
+          </h1>
+          <p class="animated fadeIn mb-4 pb-2">
+               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum at
+               tenetur veniam ducimus praesentium ullam est neque labore debitis
+               illo
+          </p>
+          <a href="" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Get Started</a>
+     </div>
+
+     <div class="col-md-6 animated fadeIn" style="margin-top: 70px">
+          <div class="owl-carousel header-carousel">
+               <div class="owl-carousel-item">
+                    <img class="img-fluid" src="{%static 'img/carousel-1.png'%}" alt="" />
+               </div>
+               <div class="owl-carousel-item">
+                    <img class="img-fluid" src="{%static 'img/carousel-2.png'%}" alt="" />
+               </div>
+          </div>
+     </div>
+</div>
+{%endblock carousel%}
+{%block category%}
+{%endblock category%}
+{%block about%}
+<script>
+     function showResponse() {
+          var xhttp = new XMLHttpRequest();
+          xhttp.open("GET", "http://localhost:8000/ajaxresponse/", true);
+          xhttp.send();
+
+          xhttp.onreadystatechange = function () {
+               if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    document.getElementById("response").innerHTML = xhttp.responseText;
+               }
+          }
+     }
+</script>
+<br><br>
+<br><br><br><br><br>
+<div>
+     <button onclick="showResponse()">Click to make AJAX code working</button>
+     <div id="response"></div>
+</div>
+{%endblock about%}
+{%block property%}
+{%endblock property%}
+{%block contact%}
+{%endblock contact%}
+{%block team%}
+{%endblock team%}
+{%block testimonial%}
+{%endblock testimonial%}
+{%block footer%}
+{%endblock footer %}

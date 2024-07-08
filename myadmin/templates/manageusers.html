@@ -1,0 +1,78 @@
+{% extends 'adminhome.html' %}
+{%block nav%}
+<div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto">
+      <a href="/myadmin/" class="nav-item nav-link">Admin home</a>
+      <a href="/myadmin/manageusers" class="nav-item nav-link active">Manage users</a>
+    <div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Options</a>
+      <div class="dropdown-menu rounded-0 m-0">
+          <a href="/myadmin/addcategory/" class="dropdown-item">Add Category</a>
+          <a href="/myadmin/addsubcategory/" class="dropdown-item">Add Sub Category</a>
+          <a href="/myadmin/addproduct/" class="dropdown-item">Add Product</a>
+          <a href="/myadmin/seeaddedproducts/" class="dropdown-item">See Added Products</a>
+      </div>
+  </div>
+  <div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+    <div class="dropdown-menu rounded-0 m-0">
+        <a href="/myadmin/cpuser/" class="dropdown-item">Change Password</a>
+        <a href="/myadmin/epuser/" class="dropdown-item">Edit Profile</a>
+    </div>
+</div>
+</div> 
+   <a href="/Login/"  class="btn btn-primary px-3 d-none d-lg-flex text-right">Logout</a>
+  </div>
+
+{%endblock nav%}
+
+{%block carousel%}
+<br><br>
+<div class="col-md-12 p-5 mt-lg-5">
+  <p>Welcome:{{sunm}}</p>
+  <h2 class="display-8 animated fadeIn mb-4">
+    <span class="text-primary">View & Manage Users <i class="bi bi-chevron-double-right"></i></span></h2>
+  <table class="table table-bordered">
+    <tr>
+      <th>RegId</th>
+      <th>Name</th>
+      <th>Mobile</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Gender</th>
+      <th>Info</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    {% for row in userdetails %}
+      <tr>
+        <td>{{row.regid}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.mobile}}</td>
+        <td>{{row.email}}</td>
+        <td>{{row.address}}</td>
+        <td>{{row.city}}</td>
+        <td>{{row.gender}}</td>
+        <td>{{row.info}}</td>
+        <td>
+          {% if  row.status %}
+          <font color=green>Active</font>
+          {% else %}
+          <font color="orange">InActive</font>
+          {% endif %}
+        </td>
+        <td>
+          {% if row.status%}
+          <a href="/myadmin/manageuserstatus/?status=0&regid={{row.regid}}" style="color: blue;">ChangeStatus</a>
+          {%else%} 
+          <a href="/myadmin/manageuserstatus/?status=1&regid={{row.regid}}" style="color: blue;">ChangeStatus</a>
+          {%endif%}
+          <a href="/myadmin/manageuserstatus/?status=2&regid={{row.regid}}" style="color: red;">Delete</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+  
+{%endblock carousel%}

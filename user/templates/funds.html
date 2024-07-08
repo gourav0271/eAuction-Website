@@ -1,0 +1,62 @@
+{% extends 'userhome.html'%}
+{% load static%}
+{%block nav%}
+<div class="collapse navbar-collapse m-lg-10" id="navbarCollapse">
+  <div class="navbar-nav ms-auto">
+    <a href="/user/" class="nav-item nav-link">User Home</a>
+    <a href="/user/userabout/" class="nav-item nav-link ">About User</a>
+    <a href="/user/searchcat/" class="nav-item nav-link">Search </a>
+    <a href="/user/funds/" class="nav-item nav-link active">Funds</a>
+    <div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+      <div class="dropdown-menu rounded-0 m-0">
+        <a href="/user/cpuser/" class="dropdown-item">Change Password</a>
+        <a href="/user/epuser/" class="dropdown-item">Edit Profile</a>
+      </div>
+    </div>
+  </div>
+  <a href="/Login/" class="btn btn-primary px-3 d-none d-lg-flex">Logout</a>
+</div>
+{%endblock nav%}
+{%block carousel%}
+<p>Welcome:{{sunm}}</p>
+<br><br>
+<div class="col-md-12 p-5 mt-lg-5">
+  <h3 class="display-8 animated fadeIn mb-4 text-center">
+    <span>Make payment to raise our charity</span>
+  </h3><br><br>
+  <h4 class="text-center">Donate &#8377; 1000 for charity</h4>
+  <form action={{paypalURL}} method="post">
+    <!-- Idemtify your business so that you can collect the payments -->
+    <input type="hidden" name="business" value={{paypalID}}>
+    <!-- Specify a Buy Now button -->
+    <input type="hidden" name="cmd" value="_xclick">
+    <!-- Specify details about the item that buyers will purches-->
+    <input type="hidden" name="item_name" value="funds">
+    <!-- <input type="hidden" name="item_number" value=1> -->
+    <input type="hidden" name="amount" value={{amt}}>
+    <input type="hidden" name="currency_code" value="USD">
+    <!-- Specify URLS -->
+    <input type="hidden" name="cancel_return" value=http://localhost:8000/user/cancel />
+    <input type="hidden" name="return" value=http://localhost:8000/user/payment/?uid={{sunm}}&amt={{amt}}>
+    <!-- Display the payment button.  -->
+    <input class="mx-auto d-block" type="image" name="submit" border="0" height="70" width="200"
+      src="{% static 'img/donate.jpeg'%}" alt="Paypal">
+    <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
+  </form>
+</div>
+{%endblock carousel%}
+{%block category%}
+{%endblock category%}
+{%block about%}
+{%endblock about%}
+{%block property%}
+{%endblock property%}
+{%block contact%}
+{%endblock contact%}
+{%block team%}
+{%endblock team%}
+{%block testimonial%}
+{%endblock testimonial%}
+{%block footer%}
+{%endblock footer%}

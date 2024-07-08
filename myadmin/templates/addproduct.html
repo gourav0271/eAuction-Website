@@ -1,0 +1,69 @@
+{% extends 'adminhome.html' %}
+{%block nav%}
+<div class="collapse navbar-collapse" id="navbarCollapse">
+  <div class="navbar-nav ms-auto">
+    <a href="/myadmin/" class="nav-item nav-link">Admin home</a>
+    <a href="/myadmin/manageusers/" class="nav-item nav-link">Manage users</a>
+    <div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Options</a>
+      <div class="dropdown-menu rounded-0 m-0">
+        <a href="/myadmin/addcategory/" class="dropdown-item">Add Category</a>
+        <a href="/myadmin/addsubcategory/" class="dropdown-item">Add Sub Category</a>
+        <a href="/myadmin/addproduct/" class="dropdown-item active">Add Product</a>
+        <a href="/myadmin/seeaddedproducts/" class="dropdown-item">See Added Products</a>
+      </div>
+    </div>
+    <div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+      <div class="dropdown-menu rounded-0 m-0">
+        <a href="/myadmin/cpuser/" class="dropdown-item">Change Password</a>
+        <a href="/myadmin/epuser/" class="dropdown-item">Edit Profile</a>
+      </div>
+    </div>
+  </div>
+  <a href="/Login/" class="btn btn-primary px-3 d-none d-lg-flex text-right">Logout</a>
+</div>
+{%endblock nav%}
+{%block carousel%}
+<br><br>
+<div class="col-md-12 p-5 mt-lg-5">
+  <p>Welcome:{{sunm}}</p>
+  <h2> Add Product Here!!!</h2>
+  <p style="color:blue;">{{output}}</p>
+  <form method="post" action="/myadmin/addproduct/" enctype="multipart/form-data">
+    {%csrf_token%}
+
+    <div class="form-group">
+      <label for="ptitle" style="font-weight: bolder ;font-size: larger;">Product Title:</label>
+      <input type="text" class="form-control" name="ptitle">
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="catname" style="font-weight: bolder ;font-size: larger;">Category Name:</label>
+      <select type="text" class="form-control" name="subcatname">
+        <option>Select Category</option>
+        {% for row in sclist %}
+        <option>{{row.subcatname}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="pdescription" style="font-weight: bolder ;font-size: larger;">Product Description:</label>
+      <textarea rows="5" class="form-control" name="pdescription"></textarea>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="pbprice" style="font-weight: bolder ;font-size: larger;">Product Base Price:</label>
+      <input type="text" class="form-control" name="pbprice">
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="picon" style="font-weight: bolder ;font-size: larger;">Product Icon:</label>
+      <input type="file" class="form-control" name="picon">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">Add Product</button>
+  </form>
+</div>
+{%endblock carousel%}

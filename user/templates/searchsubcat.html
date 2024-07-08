@@ -1,0 +1,47 @@
+{% extends 'searchcat.html'%}
+{%block carousel%}
+<style>
+          #main{
+               min-height: 300px;
+               width: 600px;
+          }
+          .main_part{
+               height: 150px;
+               width: 150px;
+               float: left;
+          }
+</style>
+<br>
+<div class="col-md-12 p-5 mt-lg-5">
+   <span>Welcome:{{sunm}}</span>
+   <div class="row g-5">
+    <div class="col-lg-4">
+    <h3 class="mb-4">Category list >></h3>
+   <ul>
+     {% for c in clist %}
+     <li><a href="/user/searchsubcat/?catname={{c.catname}}">{{c.catname}}</a></li>
+    <br>
+     {% endfor %}
+     </ul>
+    <br>
+    </div>
+        <div class="col-lg-8">
+          <h3 class="mb-4">Sub Category list >> {{catname}}</h3>
+          <br>
+          <div id="main"> 
+          <center>
+          {% for row in sclist %}
+          <a href="/user/searchproduct/?scname={{row.subcatname}}">
+          <div class="main_part">
+          <br>
+          <img src="/media/{{row.subcaticonname}}" height="100" width="100">
+          <br>
+          <b>{{row.subcatname}}</b>
+     </div></a>
+     {% endfor %} 
+   </div>
+</div>
+</center>
+</div>  
+</div>
+{%endblock carousel%}

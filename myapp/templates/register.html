@@ -1,0 +1,109 @@
+{% extends 'master_template.html' %}
+{%block nav%}
+<div class="collapse navbar-collapse" id="navbarCollapse">
+  <div class="navbar-nav ms-auto">
+    <a href="/" class="nav-item nav-link">Home</a>
+    <a href="/About/" class="nav-item nav-link">About</a>
+    <a href="/Services/" class="nav-item nav-link">Services</a>
+    <a href="/Register/" class="nav-item nav-link active">Register</a>
+    <a href="/Contact/" class="nav-item nav-link">Contact</a>
+  </div>
+  <a href="/Login/" class="btn btn-primary px-3 d-none d-lg-flex">Login</a>
+</div>
+{%endblock nav%}
+{%block carousel%}
+{%endblock carousel%}
+{%block category%}
+{%endblock category%}
+{%block about%}
+<script>
+  function checkEmail(emailid) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "http://localhost:8000/checkEmailAJAX/?email=" + emailid, true);
+    xhttp.send();
+
+    xhttp.onreadystatechange = function () {
+      if (xhttp.readyState == 4 && xhttp.status == 200) {
+        var msg;
+        var ref = document.getElementById("response");
+        if (xhttp.responseText == 0) {
+          ref.innerHTML = "Emailid available";
+          ref.style.color = "green";
+        }
+        else {
+          ref.innerHTML = "Emailid already exists";
+          ref.style.color = "red";
+        }
+      }
+    }
+  }
+</script>
+
+<br><br>
+<div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+  <div class="col-md-12 p-5 mt-lg-5 align-items-center">
+    <h3 class="display-5 animated fadeIn mb-4">
+      <span class="text-primary">Register </span>Here...
+    </h3>
+    <font class="text-primary">{{Output}}</font>
+    <form method="post" id="form1" action="/Register/">
+      {%csrf_token%}
+      <div class="form-group">
+        <label for="" style="font-weight: bolder ;font-size: larger;">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="EnterFull Name">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="" style="font-weight: bolder ;font-size: larger;">Mobile Number:</label>
+        <input type="text" class="form-control" id="number" name="number" placeholder="Enter Number">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="" style="font-weight: bolder ;font-size: larger;">Email address:</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email"
+          onkeyup="checkEmail(this.value)">
+        <font id="response"></font>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="" style="font-weight: bolder ;font-size: larger;">Password:</label>
+        <input type="password" class="form-control" id="pwd" name="password" placeholder="Password">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="" style="font-weight: bolder ;font-size: larger;">Address:</label>
+        <textarea class="form-control" name="address" id="address" rows="5" placeholder="Current address"></textarea>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="city" style="font-weight: bolder ;font-size: larger;">City:</label>
+        <select class="form-control" name="city" id="city">
+          <option value="">Select City</option>
+          <option value="Indore">Indore</option>
+          <option value="Ratlam">Ratlam</option>
+          <option value="Bhopal">Bhopal</option>
+          <option value="Chandigarh">Chandigarh</option>
+        </select>
+      </div>
+      <br>
+      <div class="form-group">
+        <label style="font-weight: bolder ;font-size: larger;" for="Gender">Gender:</label>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" id="gender" name="gender" value="male">&nbsp;&nbsp;Male
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="gender" id="gender" value="female">&nbsp;&nbsp;Female
+      </div>
+      <br>
+      <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>
+{%endblock about%}
+{%block property%}
+{%endblock property%}
+{%block contact%}
+{%endblock contact%}
+{%block team%}
+{%endblock team%}
+{%block testimonial%}
+{%endblock testimonial%}

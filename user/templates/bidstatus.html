@@ -1,0 +1,63 @@
+{% extends 'userhome.html'%}
+{%load static%}
+{%block nav%}
+<div class="collapse navbar-collapse m-lg-10" id="navbarCollapse">
+     <div class="navbar-nav ms-auto">
+          <a href="/user/" class="nav-item nav-link">User Home</a>
+          <a href="/user/userabout/" class="nav-item nav-link">About User</a>
+          <a href="/user/searchcat/" class="nav-item nav-link">Search </a>
+          <a href="/user/funds/" class="nav-item nav-link">Funds</a>
+          <div class="nav-item dropdown">
+               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+               <div class="dropdown-menu rounded-0 m-0">
+                    <a href="/user/cpuser/" class="dropdown-item">Change Password</a>
+                    <a href="/user/epuser/" class="dropdown-item">Edit Profile</a>
+               </div>
+          </div>
+     </div>
+     <a href="/Login/" class="btn btn-primary px-3 d-none d-lg-flex">Logout</a>
+</div>
+{%endblock nav%}
+{%block carousel%}
+<br>
+<div class="col-md-12 p-5 mt-lg-5">
+     <span>Welcome:{{sunm}}</span>
+     <div class="row g-5">
+          <div id="main">
+               <br><br>
+               <h2>
+                    <font style="color: red">{{output}}</font>
+               </h2>
+          </div>
+          <br>
+          <h4>
+               eAuction Bidding Winner of Product <span style="color: blue;">{{p_id.bidd_product}} </span>is
+               {{p_id.bidder_name}}
+               <div>
+                    {% if cart %}
+                    <a href="/user/cart/?b_id={{p_id.bid_id}}">Add to cart</a>
+                    {% endif %}
+               </div>
+
+          </h4>
+     </div>
+
+
+
+</div>
+</div>
+{%endblock carousel%}
+{%block category%}
+{%endblock category%}
+{%block about%}
+{%endblock about%}
+{%block property%}
+{%endblock property%}
+{%block contact%}
+{%endblock contact%}
+{%block team%}
+{%endblock team%}
+{%block testimonial%}
+{%endblock testimonial%}
+{%block footer%}
+{%endblock footer%}

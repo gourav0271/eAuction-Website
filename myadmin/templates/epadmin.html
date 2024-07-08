@@ -1,0 +1,92 @@
+{% extends 'adminhome.html'%}
+{%load static%}
+{%block nav%}
+<div class="collapse navbar-collapse" id="navbarCollapse">
+  <div class="navbar-nav ms-auto">
+    <a href="/myadmin/" class="nav-item nav-link">Admin home</a>
+    <a href="/myadmin/manageusers/" class="nav-item nav-link">Manage users</a>
+
+    <div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Options</a>
+      <div class="dropdown-menu rounded-0 m-0">
+        <a href="/myadmin/addcategory/" class="dropdown-item">Add Category</a>
+        <a href="/myadmin/addsubcategory/" class="dropdown-item">Add Sub Category</a>
+        <a href="/myadmin/addproduct/" class="dropdown-item">Add Product</a>
+        <a href="/myadmin/seeaddedproducts/" class="dropdown-item">See Added Products</a>
+      </div>
+    </div>
+    <div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle  active" data-bs-toggle="dropdown">Settings</a>
+      <div class="dropdown-menu rounded-0 m-0">
+        <a href="/myadmin/cpadmin/" class="dropdown-item">Change Password</a>
+        <a href="/myadmin/epadmin/" class="dropdown-item">Edit Profile</a>
+      </div>
+    </div>
+  </div>
+  <a href="/Login/" class="btn btn-primary px-3 d-none d-lg-flex text-right">Logout</a>
+</div>
+{%endblock nav%}
+{%block carousel%}
+<br>
+<div class="col-md-12 p-5 mt-lg-5">
+  <span>Welcome:{{sunm}}</span>
+  <h4>Edit profile....</h4>
+  <font style="color:blue;">{{output}}</font>
+  <form method="post" id="form1" action="/myadmin/epadmin/">
+    {%csrf_token%}
+    <div class="form-group">
+      <label for="" style="font-size: larger;">Name:</label>
+      <input type="text" class="form-control" name="name" value="{{admindetails.name}}">
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="" style="font-size: larger;">Mobile Number:</label>
+      <input type="text" class="form-control" name="number" value="{{admindetails.mobile}}">
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="" style="font-size: larger;">Email address:</label>
+      <input readonly type="email" class="form-control" name="email" value="{{admindetails.email}}">
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="" style="font-weight: bolder ;font-size: larger;">Address:</label>
+      <textarea class="form-control" name="address" rows="3">{{admindetails.address}}</textarea>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="city" style="font-weight: bolder ;font-size: larger;">City:</label>
+      <select class="form-control" name="city">
+        <option value="">{{admindetails.city}}</option>
+        <option value="Indore">Indore</option>
+        <option value="Ratlam">Ratlam</option>
+        <option value="Bhopal">Bhopal</option>
+        <option value="Chandigarh">Chandigarh</option>
+      </select>
+    </div>
+    <br>
+    <div class="form-group">
+      <label style="font-weight: bolder ;font-size: larger;" for="Gender">Gender:</label>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="radio" id="gender" name="gender" checked value="male">&nbsp;&nbsp;Male
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="radio" name="gender" id="gender" value="female">&nbsp;&nbsp;Female
+    </div>
+    <br>
+    <button type="submit" class="btn btn-info">Edit profile</button>
+  </form>
+</div>
+{%endblock carousel%}
+
+{%block category%}
+{%endblock category%}
+{%block about%}
+{%endblock about%}
+{%block property%}
+{%endblock property%}
+{%block contact%}
+{%endblock contact%}
+{%block team%}
+{%endblock team%}
+{%block testimonial%}
+{%endblock testimonial%}

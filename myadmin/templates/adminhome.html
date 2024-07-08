@@ -1,0 +1,71 @@
+{% extends 'master_template.html' %}
+{% load static %}
+{%block nav%}
+<div class="collapse navbar-collapse" id="navbarCollapse">
+  <div class="navbar-nav ms-auto">
+    <a href="/myadmin/" class="nav-item nav-link active">Admin home</a>
+    <a href="/myadmin/manageusers/" class="nav-item nav-link">Manage users</a>
+
+    <div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Options</a>
+      <div class="dropdown-menu rounded-0 m-0">
+        <a href="/myadmin/addcategory/" class="dropdown-item">Add Category</a>
+        <a href="/myadmin/addsubcategory/" class="dropdown-item">Add Sub Category</a>
+        <a href="/myadmin/addproduct/" class="dropdown-item">Add Product</a>
+        <a href="/myadmin/seeaddedproducts/" class="dropdown-item">See Added Products</a>
+      </div>
+    </div>
+    <div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+      <div class="dropdown-menu rounded-0 m-0">
+        <a href="/myadmin/cpadmin/" class="dropdown-item">Change Password</a>
+        <a href="/myadmin/epadmin/" class="dropdown-item">Edit Profile</a>
+      </div>
+    </div>
+  </div>
+  <a href="/Login/" class="btn btn-primary px-3 d-none d-lg-flex text-right">Logout</a>
+</div>
+{%endblock nav%}
+{%block carousel%}
+<br><br>
+<div class="col-md-12 p-5 mt-lg-5">
+  <p>Welcome:{{sunm}}</p>
+  <h2 class="display-8 animated fadeIn mb-4">
+    <span class="text-primary">Welcome to Admin Panel <i class="bi bi-chevron-double-right"></i></span>
+  </h2>
+</div>
+{%endblock carousel%}
+{%block category%}
+{%endblock category%}
+{%block about%}
+{%endblock about%}
+{%block property%}
+{%endblock property%}
+{%block contact%}
+{%endblock contact%}
+{%block team%}
+{%endblock team%}
+{%block testimonial%}
+{%endblock testimonial%}
+{%block footer%}
+<div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn"">
+    <div class=" copyright">
+  <div class="row">
+    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+      &copy; <a class="border-bottom" href="#">eAuction</a>, All Right
+      Reserved.
+      <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+      Designed By <a class="border-bottom" href="">eAuction </a>
+    </div>
+    <div class="col-md-6 text-center text-md-end">
+      <div class="footer-menu">
+        <a href="">Home</a>
+        <a href="">Cookies</a>
+        <a href="">Help</a>
+        <a href="">FQAs</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{%endblock footer%}

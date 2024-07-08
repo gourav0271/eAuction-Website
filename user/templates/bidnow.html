@@ -1,0 +1,68 @@
+{% extends 'userhome.html'%}
+{%load static%}
+{%block nav%}
+<div class="collapse navbar-collapse m-lg-10" id="navbarCollapse">
+     <div class="navbar-nav ms-auto">
+          <a href="/user/" class="nav-item nav-link">User Home</a>
+          <a href="/user/userabout/" class="nav-item nav-link">About User</a>
+          <a href="/user/searchcat/" class="nav-item nav-link">Search </a>
+          <a href="/user/funds/" class="nav-item nav-link">Funds</a>
+          <div class="nav-item dropdown">
+               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+               <div class="dropdown-menu rounded-0 m-0">
+                    <a href="/user/cpuser/" class="dropdown-item">Change Password</a>
+                    <a href="/user/epuser/" class="dropdown-item">Edit Profile</a>
+               </div>
+          </div>
+     </div>
+     <a href="/Login/" class="btn btn-primary px-3 d-none d-lg-flex">Logout</a>
+</div>
+{%endblock nav%}
+{%block carousel%}
+<br>
+<div class="col-md-12 p-5 mt-lg-5">
+     <span>Welcome:{{sunm}}</span>
+     <h4>Bid here...</h4>
+     <font style="color:blue;">{{output}}</font>
+     <form method="post" id="form1" action="/user/bidnow/?pid={{pDetails.pid}}">
+          {%csrf_token%}
+          <div class="form-group">
+               <label for="" style="font-size: larger;">Name:</label>
+               <input type="text" class="form-control" name="bidder_name" value="">
+          </div>
+          <br>
+          <div class="form-group">
+               <label for="" style="font-size: larger;">Mobile Number:</label>
+               <input type="text" class="form-control" name="bidder_mobile">
+          </div>
+          <br>
+          <div class="form-group">
+               <label for="" style="font-size: larger;">Email :</label>
+               <input readonly="text" class="form-control" name="bidder_email" value="{{sunm}}">
+          </div>
+          <br>
+          <div class="form-group">
+               <label for="" style="font-size: larger;">Product Base Price:</label>
+               <input readonly type="text" class="form-control" name="pbprice" value="{{pDetails.pbprice}}">
+          </div>
+          <br>
+          <div class="form-group">
+               <label for="" style="font-size: larger;">Bidd Price:</label>
+               <input type="text" class="form-control" name="bidd_price">
+          </div>
+          <button type="submit" class="btn btn-info">Submit</button>
+     </form>
+</div>
+{%endblock carousel%}
+{%block category%}
+{%endblock category%}
+{%block about%}
+{%endblock about%}
+{%block property%}
+{%endblock property%}
+{%block contact%}
+{%endblock contact%}
+{%block team%}
+{%endblock team%}
+{%block testimonial%}
+{%endblock testimonial%}

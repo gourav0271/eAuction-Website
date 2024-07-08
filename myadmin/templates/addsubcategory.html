@@ -1,0 +1,59 @@
+{% extends 'adminhome.html' %}
+{%block nav%}
+<div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto">
+      <a href="/myadmin/" class="nav-item nav-link">Admin home</a>
+      <a href="/myadmin/manageusers/" class="nav-item nav-link">Manage users</a>
+      <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Options</a>
+          <div class="dropdown-menu rounded-0 m-0">
+              <a href="/myadmin/addcategory/" class="dropdown-item">Add Category</a>
+              <a href="/myadmin/addsubcategory/" class="dropdown-item active">Add Sub Category</a>
+              <a href="/myadmin/addproduct/" class="dropdown-item">Add Product</a>
+              <a href="/myadmin/seeaddedproducts/" class="dropdown-item">See Added Products</a>
+          </div>
+      </div>  
+      <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+        <div class="dropdown-menu rounded-0 m-0">
+            <a href="/myadmin/cpuser/" class="dropdown-item">Change Password</a>
+            <a href="/myadmin/epuser/" class="dropdown-item">Edit Profile</a>
+        </div>
+    </div>
+    </div> 
+   <a href="/Login/"  class="btn btn-primary px-3 d-none d-lg-flex text-right">Logout</a>
+  </div>
+{%endblock nav%}
+{%block carousel%}
+<br><br>
+<div class="col-md-12 p-5 mt-lg-5">
+  <p>Welcome:{{sunm}}</p>
+  <h2 > Add Sub Category Here!!!</h2>
+  <p style="color:blue;">{{output}}</p>
+<form method="post" action="/myadmin/addsubcategory/" enctype="multipart/form-data">
+  {%csrf_token%}
+  <div class="form-group">
+    <label for="catname" style="font-weight: bolder ;font-size: larger;">Category Name:</label>
+    <select type="text" class="form-control" name="catname">
+    <option >Select Category</option>
+    {% for row in clist %}
+    <option >{{row.catname}}</option>
+    {% endfor %}
+  </select>
+  </div>
+  <br>
+  <div class="form-group">
+     <label for="subcatname" style="font-weight: bolder ;font-size: larger;">Sub Category Name:</label>
+     <input type="text" class="form-control" name="subcatname">
+   </div>
+   <br>
+  <div class="form-group">
+     <label for="subcaticon" style="font-weight: bolder ;font-size: larger;">Sub Category Icon:</label>
+     <br>
+     <input type="file" class="form-control" name="subcaticon">
+   </div>
+   <br>
+<button type="submit" class="btn btn-success">Add Category</button>
+</form>
+</div>
+{%endblock carousel%}

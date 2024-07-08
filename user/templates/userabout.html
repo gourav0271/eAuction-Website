@@ -1,0 +1,76 @@
+{% extends 'userhome.html'%}
+{%block nav%}
+<div class="collapse navbar-collapse m-lg-10" id="navbarCollapse">
+  <div class="navbar-nav ms-auto">
+      <a href="/user/" class="nav-item nav-link">User Home</a>
+      <a href="/user/userabout/" class="nav-item nav-link active">About User</a>
+      <a href="/user/searchcat/" class="nav-item nav-link">Search </a>
+      <a href="/user/funds/" class="nav-item nav-link">Funds</a>
+      <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+        <div class="dropdown-menu rounded-0 m-0">
+            <a href="/user/cpuser/" class="dropdown-item">Change Password</a>
+            <a href="/user/epuser/" class="dropdown-item">Edit Profile</a>
+        </div>
+    </div>
+  </div>
+  <a href="/Login/" class="btn btn-primary px-3 d-none d-lg-flex">Logout</a>
+</div>
+{%endblock nav%}
+{%block carousel%}
+<style>
+  #details{
+    width: 50%;
+  }
+</style>
+<br><br>
+<div class="col-md-12 p-5 mt-lg-5">
+  <p>Welcome:{{sunm}}</p>
+  <h2 class="display-8 animated fadeIn mb-4">
+    <span class="text-primary"> User about Panel <i class="bi bi-chevron-double-right"></i></span></h2>
+    <center>
+      <div id="details">
+    <table class="table table-bordered border-dark">
+    <tr>
+      <td><b>Name :</b></td>
+      <td>{{udetails.name}}</td>
+    </tr>
+    <tr>
+      <td><b>Email Address :</b></td>
+      <td>{{udetails.email}}</td>
+    </tr>
+    <tr>
+      <td><b> Mobile Number :</b></td>
+      <td>{{udetails.mobile}}</td>
+    </tr>
+    <tr>
+      <td><b>Gender :</b></td>
+      <td>{{udetails.gender}}</td>
+    </tr>
+    <tr>
+      <td><b>Address :</b></td>
+      <td>{{udetails.address}}</td>
+    </tr>
+    <tr>
+      <td><b> City :</b></td>
+      <td>{{udetails.city}}</td>
+    </tr>
+  </table>
+</div>
+</center>
+</div>
+{%endblock carousel%}
+{%block category%}
+{%endblock category%}
+{%block about%}
+{%endblock about%}
+{%block property%}
+{%endblock property%}
+{%block contact%}
+{%endblock contact%}
+{%block team%}
+{%endblock team%}
+{%block testimonial%}
+{%endblock testimonial%}
+{%block footer%}
+{%endblock footer%}

@@ -1,0 +1,69 @@
+{% extends 'userhome.html'%}
+{%block nav%}
+<div class="collapse navbar-collapse m-lg-10" id="navbarCollapse">
+  <div class="navbar-nav ms-auto">
+      <a href="/user/" class="nav-item nav-link">User Home</a>
+      <a href="/user/userabout/" class="nav-item nav-link">About User</a>
+      <a href="/user/searchcat/" class="nav-item nav-link active">Search </a>
+      <a href="/user/funds/" class="nav-item nav-link">Funds</a>
+      <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+        <div class="dropdown-menu rounded-0 m-0">
+            <a href="/user/cpuser/" class="dropdown-item">Change Password</a>
+            <a href="/user/epuser/" class="dropdown-item">Edit Profile</a>
+        </div>
+    </div>
+  </div>
+  <a href="/Login/" class="btn btn-primary px-3 d-none d-lg-flex">Logout</a>
+</div>
+{%endblock nav%}
+
+{%block carousel%}
+<style>
+     #main{
+           min-height: 400px;
+          width: 900px;
+          }
+          .main_part{
+               height: 200px;
+               width: 300px;
+               float: left;
+          }
+</style>
+<br>
+<div class="col-md-12 p-5 mt-lg-5">
+   <span>Welcome:{{sunm}}</span>
+    <div class="col-md-12 p-5 mt-lg-5">
+    <h3 class="display-8 animated fadeIn mb-4">Welcome to search bar....</h3>
+    <br>
+     <center><div id="main">
+     {% for row in clist %}
+     <a href="/user/searchsubcat/?catname={{row.catname}}">
+     <div class="main_part">
+          <br>
+          <img src="/media/{{row.caticonname}}" height="170" width="180">
+          <br>
+          <b>{{row.catname}}</b>
+     </div>
+     </a>
+     {% endfor %}
+   </div>
+</center> 
+    </div>  
+ </div>
+{%endblock carousel%}
+{%block category%}
+{%endblock category%}
+{%block about%}
+{%endblock about%}
+{%block property%}
+{%endblock property%}
+{%block contact%}
+{%endblock contact%}
+{%block team%}
+{%endblock team%}
+{%block testimonial%}
+{%endblock testimonial%}
+{%block footer%}
+{%endblock footer%}
+

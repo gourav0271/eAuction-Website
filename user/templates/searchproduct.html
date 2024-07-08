@@ -1,0 +1,49 @@
+{% extends 'searchcat.html'%}
+{%block carousel%}
+<style>
+     #main {
+          min-height: 300px;
+          width: 600px;
+     }
+
+     .main_part {
+          height: 150px;
+          width: 150px;
+          float: left;
+     }
+</style>
+<br>
+<div class="col-md-12 p-5 mt-lg-5">
+     <span>Welcome:{{sunm}}</span>
+     <div class="row g-5">
+          <h3 class="mb-4">Product List>></h3>
+          <div id="main">
+               <!-- <font style="color: red">{{output}}</font> -->
+
+               {% for row in plist %}
+               <center>
+                    <table height="150" style="border: solid black;" class="table table-bordered">
+                         <tr>
+                              <td width="35%" rowspan="3">
+                                   <center><img height="130" width="150" src="/media/{{row.piconname}}" alt=""></center>
+                              </td>
+                              <td> <b>Product Title: </b> {{row.ptitle}}</td>
+                         </tr>
+                         <tr>
+                              <td><b>Product Description : </b>{{row.pdescription}}</td>
+                         </tr>
+                         <tr>
+                              <td><b>Product Base Price: </b>{{row.pbprice}}</td>
+                         </tr>
+                         <tr>
+                              <td align="center" colspan="2">
+                                   <a href="/user/bidstatus/?pid={{row.pid}}">Check bid status</a>
+                              </td>
+                         </tr>
+                    </table>
+               </center>
+               {% endfor %}
+          </div>
+     </div>
+</div>
+{%endblock carousel%}

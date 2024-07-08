@@ -1,0 +1,148 @@
+{% extends 'userhome.html' %}
+{%load static%}
+{%block nav%}
+<div class="collapse navbar-collapse m-lg-10" id="navbarCollapse">
+     <div class="navbar-nav ms-auto">
+          <a href="/user/" class="nav-item nav-link">User Home</a>
+          <a href="/user/userabout/" class="nav-item nav-link">About User</a>
+          <a href="/user/searchcat/" class="nav-item nav-link">Search </a>
+          <a href="/user/funds/" class="nav-item nav-link">Funds</a>
+          <div class="nav-item dropdown">
+               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+               <div class="dropdown-menu rounded-0 m-0">
+                    <a href="/user/cpuser/" class="dropdown-item">Change Password</a>
+                    <a href="/user/epuser/" class="dropdown-item">Edit Profile</a>
+               </div>
+          </div>
+     </div>
+     <a href="/Login/" class="btn btn-primary px-3 d-none d-lg-flex">Logout</a>
+</div>
+{%endblock nav%}
+{%block carousel%}
+<link rel="stylesheet" href="{%static 'css/cartstyle.css'%}">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<br><br><br>
+<div class="container col-md-12 p-5 ">
+     <div class="wrapper wrapper-content animated fadeInRight">
+          <div class="row">
+               <div class="col-md-9">
+                    <div class="ibox">
+                         <div class="ibox-title">
+                              <span class="pull-right">(<strong>1</strong>) items</span>
+                              <h5>Items in your cart</h5>
+                         </div>
+                         <div class="ibox-content">
+                              <div class="table-responsive">
+                                   <table class="table shoping-cart-table">
+                                        <tbody>
+                                             <tr>
+                                                  <td width="90">
+                                                       <div class="cart-product-imitation">
+                                                       </div>
+                                                  </td>
+                                                  <td class="desc">
+                                                       <h3>
+                                                            <a href="#" class="text-navy">
+                                                                 <font style="font-size: x-large;">
+                                                                      {{details.bidd_product}}</font>
+                                                            </a>
+                                                       </h3>
+                                                       <p class="small">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                            Distinctio tempore autem reprehenderit debitis, facilis ea
+                                                            cupiditate magni nihil veniam in nemo laboriosam ullam nam,
+                                                            exercitationem quae nulla provident maiores illum.
+                                                       </p>
+                                                       <dl class="small m-b-none">
+                                                            <dt>Description lists</dt>
+                                                            <dd>{{title.pdescription}}</dd>
+                                                       </dl>
+                                                       <div class="m-t-sm">
+                                                            <a href="#" class="text-muted"><i class="fa fa-gift"></i>
+                                                                 Add gift package</a>
+                                                            |
+                                                            <a href="#" class="text-muted"><i class="fa fa-trash"></i>
+                                                                 Remove item</a>
+                                                       </div>
+                                                  </td>
+                                                  <td>
+                                                       &#x20b9;{{details.bidd_price}}<s
+                                                            class="small text-muted">&#x20b9;30000000</s>
+                                                  </td>
+                                                  <td width="65">
+                                                       <input type="text" class="form-control" placeholder="1">
+                                                  </td>
+                                                  <td>
+                                                       <h4>
+                                                            &#x20b9;{{details.bidd_price}}
+                                                       </h4>
+                                                  </td>
+                                             </tr>
+                                        </tbody>
+                                   </table>
+                              </div>
+                         </div>
+                         <div class="ibox-content">
+                              <a href="/user/checkout/?ID={{details.bid_id}}"> <button
+                                        class="btn btn-primary pull-right">
+                                        <i class="fa fa fa-shopping-cart"></i>Checkout</button></a>
+                              <button class="btn btn-white"><i class="fa fa-arrow-left"></i> Continue shopping</button>
+                         </div>
+                    </div>
+               </div>
+               <div class="col-md-3">
+                    <div class="ibox">
+                         <div class="ibox-title">
+                              <h5>Cart Summary</h5>
+                         </div>
+                         <div class="ibox-content">
+                              <span>
+                                   Total
+                              </span>
+                              <h2 class="font-bold">
+                                   &#x20b9;{{details.bidd_price}}
+                              </h2>
+                              <hr>
+                              <span class="text-muted small">
+                                   *For United States, France and Germany applicable sales tax will be applied
+                              </span>
+                              <div class="m-t-sm">
+                                   <div class="btn-group">
+                                        <a href="/user/checkout/?ID={{details.bid_id}}"> <button
+                                                  class="btn btn-primary pull-right">
+                                                  <i class="fa fa fa-shopping-cart"></i>Checkout</button></a>
+                                        <a href="/user/" class="btn btn-white btn-sm"> Cancel</a>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="ibox">
+                         <div class="ibox-title">
+                              <h5>Support</h5>
+                         </div>
+                         <div class="ibox-content text-center">
+                              <h3><i class="fa fa-phone"></i> +43 100 783 001</h3>
+                              <span class="small">
+                                   Please contact with us if you have any questions. We are avalible 24h.
+                              </span>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>
+{%endblock carousel%}
+{%block category%}
+{%endblock category%}
+{%block about%}
+{%endblock about%}
+{%block property%}
+{%endblock property%}
+{%block contact%}
+{%endblock contact%}
+{%block team%}
+{%endblock team%}
+{%block testimonial%}
+{%endblock testimonial%}
+{%block footer%}
+{%endblock footer%}

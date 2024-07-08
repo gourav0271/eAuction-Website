@@ -1,0 +1,83 @@
+{% extends 'userhome.html'%}
+{%load static%}
+{%block nav%}
+<div class="collapse navbar-collapse m-lg-10" id="navbarCollapse">
+  <div class="navbar-nav ms-auto">
+    <a href="/user/" class="nav-item nav-link">User Home</a>
+    <a href="/user/userabout/" class="nav-item nav-link">About User</a>
+    <a href="/user/searchcat/" class="nav-item nav-link">Search </a>
+    <a href="/user/funds/" class="nav-item nav-link">Funds</a>
+    <div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Settings</a>
+      <div class="dropdown-menu rounded-0 m-0">
+        <a href="/user/cpuser/" class="dropdown-item">Change Password</a>
+        <a href="/user/epuser/" class="dropdown-item">Edit Profile</a>
+      </div>
+    </div>
+  </div>
+  <a href="/Login/" class="btn btn-primary px-3 d-none d-lg-flex">Logout</a>
+</div>
+{%endblock nav%}
+{%block carousel%}
+<br>
+<div class="col-md-12 p-5 mt-lg-5">
+  <span>Welcome:{{sunm}}</span>
+  <h4>Edit profile....</h4>
+  <font style="color:blue;">{{output}}</font>
+  <form method="post" id="form1" action="/user/epuser/">
+    {%csrf_token%}
+    <div class="form-group">
+      <label for="" style="font-size: larger;">Name:</label>
+      <input type="text" class="form-control" name="name" value="{{userdetails.name}}">
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="" style="font-size: larger;">Mobile Number:</label>
+      <input type="text" class="form-control" name="number" value="{{userdetails.mobile}}">
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="" style="font-size: larger;">Email address:</label>
+      <input readonly type="email" class="form-control" name="email" value="{{userdetails.email}}">
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="" style="font-weight: bolder ;font-size: larger;">Address:</label>
+      <textarea class="form-control" name="address" rows="3">{{userdetails.address}}</textarea>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="city" style="font-weight: bolder ;font-size: larger;">City:</label>
+      <select class="form-control" name="city">
+        <option value="">{{userdetails.city}}</option>
+        <option value="Indore">Indore</option>
+        <option value="Ratlam">Ratlam</option>
+        <option value="Bhopal">Bhopal</option>
+        <option value="Chandigarh">Chandigarh</option>
+      </select>
+    </div>
+    <br>
+    <div class="form-group">
+      <label style="font-weight: bolder ;font-size: larger;" for="Gender">Gender:</label>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="radio" id="gender" name="gender" checked value="male">&nbsp;&nbsp;Male
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="radio" name="gender" id="gender" value="female">&nbsp;&nbsp;Female
+    </div>
+    <br>
+    <button type="submit" class="btn btn-info">Edit profile</button>
+  </form>
+</div>
+{%endblock carousel%}
+{%block category%}
+{%endblock category%}
+{%block about%}
+{%endblock about%}
+{%block property%}
+{%endblock property%}
+{%block contact%}
+{%endblock contact%}
+{%block team%}
+{%endblock team%}
+{%block testimonial%}
+{%endblock testimonial%}

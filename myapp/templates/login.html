@@ -1,0 +1,52 @@
+{% extends 'master_template.html' %}
+{%block nav%}
+<div class="collapse navbar-collapse" id="navbarCollapse">
+  <div class="navbar-nav ms-auto">
+    <a href="/" class="nav-item nav-link">Home</a>
+    <a href="/About/" class="nav-item nav-link">About</a>
+    <a href="/Services/" class="nav-item nav-link">Services</a>
+    <a href="/Register/" class="nav-item nav-link">Register</a>
+    <a href="/Contact/" class="nav-item nav-link">Contact</a>
+  </div>
+  <a href="/Login/" class="btn btn-primary px-3 d-none d-lg-flex active">Login</a>
+</div>
+{%endblock nav%}
+{%block carousel%}
+{%endblock carousel%}
+{%block category%}
+{%endblock category%}
+{%block about%}
+<br><br>
+<div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+  <div class="col-md-12 p-5 mt-lg-5 align-items-center">
+    <h3 class="display-5 animated fadeIn mb-4">
+      <span class="text-primary">LogIn </span>to your account
+    </h3>
+    <font class="text-danger">{{Output}}</font>
+    <form method="post" action="/Login/">
+      {%csrf_token%}
+      <div class="form-group">
+        <label for="" style="font-weight: bolder; font-size: larger">Email address:</label>
+        <input type="email" class="form-control" name="email" value="{{cunm}}" aria-describedby="emailHelp" />
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="" style="font-weight: bolder; font-size: larger">Password:</label>
+        <input type="password" class="form-control" name="password" value="{{cpass}}" />
+      </div>
+      <br>
+      <input type="checkbox" name="chk" value="remember"> Remember me ?
+      <br> <br />
+      <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>
+{%endblock about%}
+{%block property%}
+{%endblock property%}
+{%block contact%}
+{%endblock contact%}
+{%block team%}
+{%endblock team%}
+{%block testimonial%}
+{%endblock testimonial%}

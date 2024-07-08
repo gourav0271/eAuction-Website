@@ -1,0 +1,28 @@
+{% extends 'epadmin.html'%}
+{%load static%}
+{%block carousel%}
+<br>
+<div class="col-md-12 p-5 mt-lg-5">
+  <span>Welcome:{{sunm}}</span>
+  <br>
+  <h4 class="">Change password here!!!</h4>
+  <font style="color: rgb(38, 255, 0)">{{output}}</font>
+  <form method="post" action="/myadmin/cpadmin/">
+    {%csrf_token%}
+    <div class="form-group">
+      <label for="opwd" style="font-weight: bolder; ">Old Password</label>
+      <input type="password" class="form-control" name="opassword" value="" />
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="npwd" style="font-weight: bolder; ">New Password</label>
+      <input type="password" class="form-control" name="npassword" value="" />
+    </div><br> <br />
+    <div class="form-group">
+      <label for="cnpwd" style="font-weight: bolder; ">Confirm New Password</label>
+      <input type="password" class="form-control" name="cnpassword" value="" />
+    </div><br>
+    <button type="submit" class=" btn btn-info">Submit</button>
+  </form>
+</div>
+{%endblock carousel%}
